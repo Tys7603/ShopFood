@@ -3,9 +3,13 @@
     <string name="food_runs">Food Runs</string>
 
     <string name="title_onboarding">Select the Favorities Menu</string>
+    <string name="title_onboarding2">Good food at a cheap price</string>
     <string name="content_onboarding">Now eat well, don\'t leave the house,You can</string>
     <string name="content_onboarding1">choose your favorite food only with</string>
     <string name="content_onboarding2">one click</string>
+    <string name="content1_onboarding">You can eat at expensive</string>
+    <string name="content1_onboarding1">restaurants with</string>
+    <string name="content1_onboarding2">affordable price</string>
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="login">Login</string>
