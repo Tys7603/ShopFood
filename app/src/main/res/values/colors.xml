@@ -13,12 +13,16 @@
     <color name="second">#3B3B3B</color>
     <color name="btnGG">#F4F4F4</color>
     <color name="Linear">#FF0000</color>
-<!--    <color name="primary">#FF0000</color>-->
-<!--    <color name="primary">#FF0000</color>-->
-<!--    <color name="primary">#FF0000</color>-->
-<!--    <color name="primary">#FF0000</color>-->
-<!--    <color name="primary">#FF0000</color>-->
-<!--    <color name="primary">#FF0000</color>-->
+    <color name="conten_onboarding">#3B3B3B</color>
+    <color name="MainColor">#FF4201</color>
+    <color name="SecondaryColor">#FFE8E0</color>
+    <color name="Red">#FF0101</color>
+    <color name="Gray1">#9D9693</color>
+    <color name="Gray2">#C9C5C4</color>
+    <color name="Gray3">#DFDFDF</color>
+    <color name="Background">#F5F5F5</color>
+    <color name="MainBlack">#1A0700</color>
+    <color name="White">#FFFFFF</color>
 
 
 </resources>
