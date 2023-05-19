@@ -18,7 +18,6 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-            case 0 : return new OnboardingFragment();
             case 1 : return new OnboardingFragment1();
             case 2 : return new AcountFragment();
             default : return new OnboardingFragment();
