@@ -16,6 +16,7 @@
 
         android:text="@string/forPass"
         android:textColor="@color/Linear"
+        android:fontFamily="@font/red_hat_display_medium"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
@@ -40,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
+            android:fontFamily="@font/red_hat_display_medium"
             android:inputType="textEmailAddress"
             android:textColor="@color/second"
             android:textSize="16sp" />
@@ -66,6 +68,7 @@
             android:id="@+id/tv_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/red_hat_display_medium"
             android:hint="@string/pass"
             android:textSize="16sp"
             android:inputType="textPassword"

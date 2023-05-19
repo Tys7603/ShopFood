@@ -34,6 +34,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginTop="58dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@+id/imgHome"
+                app:layout_constraintStart_toEndOf="@+id/imageMenu"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_location" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/content_main" />
+            </LinearLayout>
+
             <ImageView
                 android:id="@+id/imageMenu"
                 android:layout_width="25dp"
@@ -80,10 +107,10 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="0dp"
-                android:layout_height="160dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="35dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="25dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -161,6 +188,15 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <me.relex.circleindicator.CircleIndicator3
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:ci_drawable="@drawable/incaditor"
+                app:layout_constraintBottom_toTopOf="@+id/productMenu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
             <LinearLayout
                 android:id="@+id/productMenu"
                 android:layout_width="match_parent"
@@ -210,6 +246,8 @@
                     android:layout_weight="1"
                     android:background="@drawable/bgr_item_bottom_menu2"
                     android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:orientation="horizontal"
                     android:paddingHorizontal="6dp"
                     android:paddingVertical="5dp">
@@ -266,7 +304,9 @@
                 android:id="@+id/productMenuReycleView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="18dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productMenu">
@@ -274,29 +314,60 @@
             </androidx.recyclerview.widget.RecyclerView>
 
 
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/red_hat_display_medium"
-                android:letterSpacing="0.02"
-                android:text="Popula Meal Menu"
-                android:textColor="@color/MainBlack"
-                android:textSize="25dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productMenuReycleView" />
+                app:layout_constraintTop_toBottomOf="@+id/productMenuReycleView">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/red_hat_display_bold"
+                    android:letterSpacing="0.02"
+                    android:text="Popula Meal Menu"
+                    android:textColor="@color/MainBlack"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/seeAll"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.529" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="5dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/icon_see"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productReycleView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="26dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
             </androidx.recyclerview.widget.RecyclerView>
 

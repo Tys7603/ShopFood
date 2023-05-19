@@ -10,42 +10,41 @@
         android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="-210dp"
+        android:contentDescription="@string/food_runs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/food_runs"
-        app:srcCompat="@drawable/backgroud_welcome" />
+        app:srcCompat="@drawable/img" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="222.9dp"
+        android:layout_height="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/nguoi"
             android:layout_width="159.72dp"
             android:layout_height="163.32dp"
+            android:contentDescription="@string/food_runs"
             android:src="@drawable/weocome"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="@string/food_runs"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="172dp"
+            android:layout_width="wrap_content"
             android:layout_height="162dp"
+            android:contentDescription="@string/food_runs"
             android:src="@drawable/deco_welcome"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="@string/food_runs"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -62,6 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
+        android:fontFamily="@font/red_hat_display_bold"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

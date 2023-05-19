@@ -8,25 +8,24 @@
     android:background="#F5F5F5">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pageMain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/viewPage2Main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="@+id/bottomMenu"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/bottomMenu"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
         android:background="@drawable/shape_radius15_topleft_topright_white"
         android:orientation="horizontal"
         android:paddingHorizontal="35dp"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
         android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +33,7 @@
 
         <LinearLayout
             android:id="@+id/homeItem"
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="44dp"
             android:layout_weight="1"
             android:background="@drawable/bgr_item_bottom_menu"
@@ -45,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/homeImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25.35dp"
+                android:layout_height="24dp"
                 android:src="@drawable/home" />
 
             <TextView
@@ -74,8 +73,8 @@
 
             <ImageView
                 android:id="@+id/profileImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25.35dp"
+                android:layout_height="24dp"
                 android:src="@drawable/profile" />
 
             <TextView
@@ -104,8 +103,8 @@
 
             <ImageView
                 android:id="@+id/buyImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25.35dp"
+                android:layout_height="24dp"
                 android:src="@drawable/buy" />
 
             <TextView
@@ -134,8 +133,8 @@
 
             <ImageView
                 android:id="@+id/chatImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25.35dp"
+                android:layout_height="24dp"
                 android:src="@drawable/chat" />
 
             <TextView

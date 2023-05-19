@@ -5,23 +5,25 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.OnboardingFragment">
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-180dp"
+        android:layout_marginTop="-30dp"
+        android:contentDescription="@string/food_runs"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/food_runs"
         app:srcCompat="@drawable/backgroud_welcome" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="408.5dp"
-        android:layout_height="390.22dp"
-        android:layout_marginStart="-50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="434.22dp"
+        android:layout_marginStart="-55dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="-20dp"
         android:contentDescription="@string/food_runs"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,26 +87,5 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="157dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="42dp"
-        android:backgroundTint="@color/primary"
-        app:cardCornerRadius="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/red_hat_display_bold"
-            android:text="@string/next"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
