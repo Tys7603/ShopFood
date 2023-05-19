@@ -22,8 +22,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="100dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -33,6 +32,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -243,11 +243,11 @@
                     android:id="@+id/product2"
                     android:layout_width="0dp"
                     android:layout_height="44dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/bgr_item_bottom_menu2"
                     android:gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:orientation="horizontal"
                     android:paddingHorizontal="6dp"
                     android:paddingVertical="5dp">
@@ -301,18 +301,16 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/productMenuReycleView"
+                android:id="@+id/productReycleView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="275dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productMenu">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
+                app:layout_constraintTop_toBottomOf="@+id/productMenu" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout3"
@@ -322,12 +320,13 @@
                 android:layout_marginEnd="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/productMenuReycleView">
+                app:layout_constraintTop_toBottomOf="@+id/productReycleView">
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="@font/red_hat_display_bold"
                     android:letterSpacing="0.02"
                     android:text="Popula Meal Menu"
@@ -358,18 +357,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/productReycleView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-            </androidx.recyclerview.widget.RecyclerView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

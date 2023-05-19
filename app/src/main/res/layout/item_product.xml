@@ -2,24 +2,23 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="20dp"
     android:layout_width="289dp"
-    android:layout_height="wrap_content"
+    android:layout_height="270dp"
     app:cardCornerRadius="15dp"
+    android:layout_marginRight="10dp"
     app:cardElevation="1dp"
-    android:layout_marginBottom="2dp"
-    android:layout_marginStart="35dp">
+
+  >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="20dp">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/starProduct"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/star"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,20 +28,20 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
             android:letterSpacing="0.02"
             android:text="3.8"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/starProduct"
             app:layout_constraintStart_toEndOf="@+id/starProduct"
-            app:layout_constraintTop_toTopOf="@+id/starProduct" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/productImg"
             android:layout_width="107dp"
             android:layout_height="97dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,23 +67,25 @@
             android:id="@+id/productId"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/red_hat_display_medium"
             android:letterSpacing="0.02"
             android:text="100 gr chicken + tomato + cheese  Lettuce"
             android:textColor="@color/Gray1"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/productName"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productName" />
 
 
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/productId"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productId">
 
             <TextView
@@ -105,7 +106,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/red_hat_display_bold"
                 android:letterSpacing="0.02"
-                android:text="00"
+                android:text=".00"
                 android:textColor="@color/MainColor"
                 android:textSize="16sp" />
         </LinearLayout>
