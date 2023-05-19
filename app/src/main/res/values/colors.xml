@@ -10,7 +10,9 @@
     //
     <color name="primary">#FF0000</color>
     <color name="black">#000000</color>
-    <color name="conten_onboarding">#3B3B3B</color>
+    <color name="second">#3B3B3B</color>
+    <color name="btnGG">#F4F4F4</color>
+    <color name="Linear">#FF0000</color>
 <!--    <color name="primary">#FF0000</color>-->
 <!--    <color name="primary">#FF0000</color>-->
 <!--    <color name="primary">#FF0000</color>-->

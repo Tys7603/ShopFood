@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/content_onboarding"
-                android:textColor="@color/conten_onboarding"
+                android:textColor="@color/second"
                 android:textSize="12sp" />
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/content_onboarding1"
-                android:textColor="@color/conten_onboarding"
+                android:textColor="@color/second"
                 android:textSize="12sp" />
 
             <TextView
@@ -75,29 +75,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/content_onboarding2"
-                android:textColor="@color/conten_onboarding"
+                android:textColor="@color/second"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="137dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/primary"
-        app:cardCornerRadius="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/next"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

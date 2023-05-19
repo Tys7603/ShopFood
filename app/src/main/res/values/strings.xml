@@ -8,6 +8,13 @@
     <string name="content_onboarding2">one click</string>
     <string name="next">Next</string>
     <string name="skip">Skip</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="fullName">Full name</string>
+    <string name="email">Email address</string>
+    <string name="pass">Password</string>
+    <string name="btnGG">Sign up with Google</string>
+    <string name="forPass">Forget Password?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
