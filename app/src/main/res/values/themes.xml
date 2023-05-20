@@ -19,4 +19,10 @@
         <item name="android:textSize">16dp</item>
         <item name="android:fontFamily">@font/red_hat_display_bold</item>
     </style>
+    <style name="Theme.ShopFood.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.ShopFood.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ShopFood.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
