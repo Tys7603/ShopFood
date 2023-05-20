@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.shopfood.Adapter.AdapterRCVMenuProduct;
 import com.example.shopfood.Adapter.AdapterRCVProduct;
 import com.example.shopfood.Modal.Product;
 import com.example.shopfood.R;
@@ -24,7 +25,10 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     List<Product> list;
     AdapterRCVProduct adapterRCVProduct;
+    AdapterRCVMenuProduct adapterRCVMenuProduct;
     RecyclerView rcvProduct;
+    RecyclerView rcvMenuProduct;
+    LinearLayoutManager layoutManager;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -42,19 +46,40 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // anh xa
        rcvProduct = view.findViewById(R.id.productReycleView);
+       rcvMenuProduct = view.findViewById(R.id.productMenuRCV);
+       // add list
+        addList();
+       // set adapter
 
+        setAdapterRCVProduct();
+        setAdapterRCVMenuProduct();
+
+
+    }
+
+    public void addList(){
         list = new ArrayList<>();
         list.add(new Product(1,"Burger",10));
         list.add(new Product(2,"Burger",12));
         list.add(new Product(3,"Burger",13));
         list.add(new Product(4,"Burger",15));
         list.add(new Product(5,"Burger",17));
+    }
 
+    public void setAdapterRCVProduct(){
+        // rcv product
+        layoutManager = new LinearLayoutManager(getContext());
         adapterRCVProduct = new AdapterRCVProduct(getActivity(), list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
-
         rcvProduct.setLayoutManager(layoutManager);
         rcvProduct.setAdapter(adapterRCVProduct);
+    }
+    public void setAdapterRCVMenuProduct(){
+        // rcv menu prodcut
+        layoutManager = new LinearLayoutManager(getContext());
+        adapterRCVMenuProduct = new AdapterRCVMenuProduct(getActivity(), list);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        rcvMenuProduct.setLayoutManager(layoutManager);
+        rcvMenuProduct.setAdapter(adapterRCVMenuProduct);
     }
 }
