@@ -1,5 +1,6 @@
 package com.example.shopfood.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.shopfood.Activity.DetailMenuActivity;
 import com.example.shopfood.Adapter.AdapterRCVMenuProduct;
 import com.example.shopfood.Adapter.AdapterRCVProduct;
 import com.example.shopfood.Modal.Product;
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
     RecyclerView rcvProduct;
     RecyclerView rcvMenuProduct;
     LinearLayoutManager layoutManager;
+    Intent intent;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -50,12 +53,13 @@ public class HomeFragment extends Fragment {
        // add list
         addList();
        // set adapter
-
         setAdapterRCVProduct();
         setAdapterRCVMenuProduct();
 
 
+
     }
+
 
     public void addList(){
         list = new ArrayList<>();

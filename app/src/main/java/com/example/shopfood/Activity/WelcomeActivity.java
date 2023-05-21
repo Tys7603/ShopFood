@@ -26,7 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
         hidenStatus();
 
         Handler handler = new Handler();
-        handler.postDelayed(() -> {
+        handler.postDelayed( () -> {
             startActivity(new Intent(WelcomeActivity.this, OnboardingActivity.class));
             finish();
 

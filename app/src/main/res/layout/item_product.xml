@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_itemProduct"
     android:layout_width="289dp"
     android:layout_height="270dp"
     app:cardCornerRadius="15dp"
@@ -95,7 +96,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/red_hat_display_bold"
                 android:letterSpacing="0.02"
-                android:text="$20."
+                android:text="$20"
                 android:textColor="@color/MainColor"
                 android:textSize="20sp" />
 
@@ -106,7 +107,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/red_hat_display_bold"
                 android:letterSpacing="0.02"
-                android:text=".00"
+                android:text="00"
                 android:textColor="@color/MainColor"
                 android:textSize="16sp" />
         </LinearLayout>
