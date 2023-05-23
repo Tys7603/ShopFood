@@ -61,7 +61,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/profileItem"
+            android:id="@+id/btnActivityProfile"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"
@@ -91,7 +91,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyItem"
+            android:id="@+id/btnActivityCart"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"
@@ -121,7 +121,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/chatItem"
+            android:id="@+id/btnActivityChat"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"

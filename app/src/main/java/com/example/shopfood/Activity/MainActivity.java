@@ -5,12 +5,14 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.example.shopfood.Adapter.ViewPager2Adapter_main;
 import com.example.shopfood.R;
@@ -18,6 +20,7 @@ import com.example.shopfood.R;
 public class MainActivity extends AppCompatActivity {
     ViewPager2 viewPager2;
     ViewPager2Adapter_main adapterMain;
+    LinearLayout btnActivityCart, btnActivityProfile, btnActivityChat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +30,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init(){
+        btnActivityCart = findViewById(R.id.btnActivityCart);
+        btnActivityProfile = findViewById(R.id.btnActivityProfile);
+        btnActivityChat = findViewById(R.id.btnActivityChat);
         viewPager2 = findViewById(R.id.viewPage2Main);
         adapterMain = new ViewPager2Adapter_main(this);
         viewPager2.setAdapter(adapterMain);
+        // chuyen man hinh
+        btnActivityCart.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, OderActivity.class)));
+        btnActivityProfile.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
+        btnActivityChat.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
     }
 
     public void hidenStatus(){
