@@ -131,7 +131,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bgr_item_bottom_menu4"
                 android:text="Place My Order"
-                android:textColor="@color/MainColor"
+                android:textColor="@color/primary"
                 android:textSize="14sp"
                 android:fontFamily="@font/red_hat_display_bold"
                 app:layout_constraintBottom_toBottomOf="parent"

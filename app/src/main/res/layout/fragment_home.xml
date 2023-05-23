@@ -177,7 +177,7 @@
                             android:fontFamily="@font/red_hat_display_bold"
                             android:letterSpacing="0.02"
                             android:text="Buy Now"
-                            android:textColor="@color/MainColor"
+                            android:textColor="@color/primary"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

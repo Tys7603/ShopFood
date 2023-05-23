@@ -20,16 +20,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="222.9dp"
-        android:layout_height="280dp"
+        android:layout_height="227.27dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
         <ImageView
             android:id="@+id/nguoi"
             android:layout_width="159.72dp"
             android:layout_height="163.32dp"
+            android:layout_marginTop="64dp"
             android:contentDescription="@string/food_runs"
             android:src="@drawable/weocome"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,15 +55,15 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="442dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/red_hat_display_bold"
+        android:gravity="center"
         android:text="@string/food_runs"
         android:textColor="@color/primary"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        android:fontFamily="@font/red_hat_display_bold"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,7 +63,7 @@
             android:fontFamily="@font/red_hat_display_bold"
             android:letterSpacing="0.02"
             android:text="$ 20"
-            android:textColor="@color/MainColor"
+            android:textColor="@color/primary"
             android:textSize="20sp" />
     </LinearLayout>
 

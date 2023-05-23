@@ -57,7 +57,7 @@
             android:layout_marginEnd="20dp"
             android:fontFamily="@font/red_hat_display_bold"
             android:text="$15"
-            android:textColor="@color/MainColor"
+            android:textColor="@color/primary"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
