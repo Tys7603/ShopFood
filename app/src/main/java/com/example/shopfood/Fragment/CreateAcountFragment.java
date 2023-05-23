@@ -66,7 +66,6 @@ public class CreateAcountFragment extends Fragment {
         btnCreateAccount.setOnClickListener(view1 -> {
 
             if (validate()) {
-                Toast.makeText(getActivity(), "Thanh cong", Toast.LENGTH_SHORT).show();
                 createUser( email,name, pass);
             }
         });
