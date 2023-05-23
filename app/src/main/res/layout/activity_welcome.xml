@@ -53,15 +53,14 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="442dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/red_hat_display_bold"
+        android:gravity="center"
         android:text="@string/food_runs"
         android:textColor="@color/primary"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        android:fontFamily="@font/red_hat_display_bold"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_cFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/fullName"
@@ -51,7 +52,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tv_email"
+            android:id="@+id/tv_cEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/second"
@@ -79,7 +80,7 @@
         app:startIconTint="@color/primary">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tv_pass"
+            android:id="@+id/tv_cPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pass"
@@ -90,7 +91,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnCreateAccount"
         android:layout_width="250dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
@@ -118,7 +119,7 @@
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin">
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateAccount">
 
         <LinearLayout
             android:layout_width="match_parent"

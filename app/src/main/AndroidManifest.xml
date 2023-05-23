@@ -34,6 +34,7 @@
         <activity
             android:name=".Activity.DetailMenuActivity"
             android:exported="false" />
+
         <activity
             android:name=".Activity.OnboardingActivity"
             android:exported="true">
