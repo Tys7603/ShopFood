@@ -10,13 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
 public interface CallApi {
-
-    CallApi CallApi = new Retrofit.Builder()
-            .baseUrl(ManagerUrl.ApiLogin)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(CallApi.class);
-
-    @GET(ManagerUrl.ApiLogin+"/list-user")
-    Call<List<User>> getListUser ();
+    @GET(ManagerUrl.URL_GET_LIST_USER)
+    Call<List<User>> getListUser();
 }

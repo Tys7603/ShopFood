@@ -17,12 +17,15 @@ import com.example.shopfood.Activity.MainActivity;
 import com.example.shopfood.Modal.User;
 import com.example.shopfood.R;
 import com.example.shopfood.api.CallApi;
+import com.example.shopfood.api.ManagerUrl;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class LoginFragment extends Fragment {
@@ -34,6 +37,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Login();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
@@ -44,16 +48,20 @@ public class LoginFragment extends Fragment {
 
         btnLogin = view.findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), MainActivity.class)));
-        Login();
     }
 
 
     public void Login() {
-        CallApi.CallApi.getListUser().enqueue(new Callback<List<User>>() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ManagerUrl.URL_BASE)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        CallApi callApi = retrofit.create(CallApi.class);
+        Call<List<User>> call = callApi.getListUser();
+        call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                List<User> list = response.body();
-                Log.d("TAg",  list.toString());
+                Log.e("TAG", response.body().toString());
             }
 
             @Override
