@@ -15,7 +15,7 @@
         android:layout_marginEnd="32dp"
 
         android:text="@string/forPass"
-        android:textColor="@color/Linear"
+        android:textColor="@color/primary"
         android:fontFamily="@font/red_hat_display_medium"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
