@@ -14,7 +14,11 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface CallApi {
-
+    CallApi callApi = new Retrofit.Builder()
+            .baseUrl(ManagerUrl.URL_BASE)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(CallApi.class);
 
     @GET(ManagerUrl.URL_GET_LIST_USER)
     Call<List<User>> getListUser ();

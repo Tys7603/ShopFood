@@ -1,6 +1,8 @@
 package com.example.shopfood.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.shopfood.Activity.MainActivity;
+import com.example.shopfood.Activity.ProfileActivity;
 import com.example.shopfood.Modal.User;
 import com.example.shopfood.R;
 import com.example.shopfood.api.CallApi;
@@ -41,7 +44,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Login();
+         getListLogin();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
@@ -55,15 +58,8 @@ public class LoginFragment extends Fragment {
         btnLogin.setOnClickListener(view1 -> validate());
     }
 
-
-    public void Login() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ManagerUrl.URL_BASE)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        CallApi callApi = retrofit.create(CallApi.class);
-        Call<List<User>> call = callApi.getListUser();
-        call.enqueue(new Callback<List<User>>() {
+    public void getListLogin() {
+        CallApi.callApi.getListUser().enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 Log.e("TAG", response.body().toString());
@@ -75,11 +71,11 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Log.d("ERR", t.toString());
+
             }
         });
-
     }
+
 
     public void validate(){
         email = tvEmail.getText().toString();
@@ -90,6 +86,7 @@ public class LoginFragment extends Fragment {
             for (int i = 0 ; i < list.size() ; i++){
                 if (email.equals(list.get(i).getEmail()) && pass.equals(list.get(i).getPassword())){
                     Toast.makeText(getActivity(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                    rememberUser(list.get(i).getFullName(), email, pass);
                     startActivity(new Intent(getActivity(), MainActivity.class));
                     return;
                 } else {
@@ -99,5 +96,14 @@ public class LoginFragment extends Fragment {
         }
     }
 
+    public void rememberUser(String name, String email, String pass){
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("rememberUser", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name", name);
+        editor.putString("email", email);
+        editor.putString("pass", pass);
+        editor.apply();
+
+    }
 
 }

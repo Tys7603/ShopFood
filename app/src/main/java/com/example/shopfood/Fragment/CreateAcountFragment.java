@@ -53,8 +53,6 @@ public class CreateAcountFragment extends Fragment {
         init(view);
         getListUser();
         onClick();
-
-
     }
     public void init(View view){
         tvFullName = view.findViewById(R.id.tv_cFullName);
@@ -70,7 +68,6 @@ public class CreateAcountFragment extends Fragment {
             }
         });
     }
-
     public void getListUser() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ManagerUrl.URL_BASE)
@@ -95,7 +92,6 @@ public class CreateAcountFragment extends Fragment {
         });
 
     }
-
     public void createUser(String email , String name, String pass){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ManagerUrl.URL_BASE)
@@ -121,13 +117,11 @@ public class CreateAcountFragment extends Fragment {
            }
        });
     }
-
     private void clearText() {
         tvEmail.setText("");
         tvFullName.setText("");
         tvPass.setText("");
     }
-
     public boolean validate(){
         name = tvFullName.getText().toString();
         email = tvEmail.getText().toString();
@@ -146,7 +140,6 @@ public class CreateAcountFragment extends Fragment {
         }
         return true ;
     }
-
     public boolean checkInfo(String name , String email, String pass){
         if (name.isEmpty() || email.isEmpty() || pass.isEmpty()){
             Toast.makeText(getActivity(), "Bạn cần nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
@@ -163,7 +156,6 @@ public class CreateAcountFragment extends Fragment {
         }
         return true;
     }
-
     public boolean checkExits(String email){
         for (User user : list ) {
            if (email.equals(user.getEmail())){

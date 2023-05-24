@@ -8,7 +8,7 @@
     tools:context=".Activity.ProfileActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout888"
+        android:id="@+id/btn_backProfile"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="33dp"
@@ -73,7 +73,7 @@
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout888" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_backProfile" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
@@ -118,6 +118,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -134,32 +135,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/shape_radius15_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/red_hat_display_regular"
-            android:text="Your name"
+            android:text="Your name : "
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView000"
+            android:id="@+id/tv_nameProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/red_hat_display_regular"
             android:text="Tommy Jason"
             android:textColor="@color/black"
@@ -171,52 +172,54 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/red_hat_display_regular"
-            android:text="Occupation"
+            android:text="Email : "
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
-            android:id="@+id/textView6666"
+            android:id="@+id/tv_emailProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/red_hat_display_regular"
             android:text="Manager"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nameProfile" />
 
         <TextView
             android:id="@+id/textView677"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="118dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/red_hat_display_regular"
-            android:text="Employer"
+            android:text="Password"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView678" />
 
         <TextView
-            android:id="@+id/textView66661"
+            android:id="@+id/tv_passProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="118dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/red_hat_display_regular"
             android:text="Overlay Design"
             android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_emailProfile" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -238,12 +241,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/shape_radius15_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <TextView
             android:id="@+id/textView699"
@@ -299,17 +302,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btn_edit_profile"
+        android:id="@+id/btn_logOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:text="Edit"
+        android:background="@drawable/bgr_item_bottom_menu1"
+        android:fontFamily="@font/red_hat_display_bold"
+        android:text="Log Out"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:fontFamily="@font/red_hat_display_bold"
-        android:background="@drawable/bgr_item_bottom_menu1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

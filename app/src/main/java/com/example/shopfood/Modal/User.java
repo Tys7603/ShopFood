@@ -2,7 +2,9 @@ package com.example.shopfood.Modal;
 
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     @SerializedName("Email")
     private String email;
     @SerializedName("FullName")
