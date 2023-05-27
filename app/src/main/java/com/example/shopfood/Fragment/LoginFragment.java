@@ -55,7 +55,7 @@ public class LoginFragment extends Fragment {
         btnLogin = view.findViewById(R.id.btnLogin);
         tvEmail = view.findViewById(R.id.tv_email);
         tvPass = view.findViewById(R.id.tv_pass);
-        btnLogin.setOnClickListener(view1 -> validate());
+        btnLogin.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), MainActivity.class)));
     }
 
     public void getListLogin() {
