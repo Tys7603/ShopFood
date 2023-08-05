@@ -13,17 +13,17 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public interface CallApi {
-    CallApi callApi = new Retrofit.Builder()
-            .baseUrl(ManagerUrl.URL_BASE)
+public interface ApiService {
+    ApiService API_SERVICE = new Retrofit.Builder()
+            .baseUrl(Constant.URL_BASE)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(CallApi.class);
+            .create(ApiService.class);
 
-    @GET(ManagerUrl.URL_GET_LIST_USER)
+    @GET(Constant.URL_GET_LIST_USER)
     Call<List<User>> getListUser ();
 
     @FormUrlEncoded
-    @POST(ManagerUrl.URL_CREATE_ACCOUNT)
+    @POST(Constant.URL_CREATE_ACCOUNT)
     Call<StatusUser> createUser(@Field("email") String email, @Field("fullname") String fullName, @Field("password") String password);
 }

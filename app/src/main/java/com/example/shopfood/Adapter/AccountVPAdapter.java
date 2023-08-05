@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.shopfood.Fragment.CreateAcountFragment;
-import com.example.shopfood.Fragment.LoginFragment;
+import com.example.shopfood.Fragment.loginFragment.CreateAcountFragment;
+import com.example.shopfood.Fragment.loginFragment.LoginFragment;
 
-public class ViewPager2Adapte_Acount extends FragmentStateAdapter {
-    public ViewPager2Adapte_Acount(@NonNull FragmentActivity fragmentActivity) {
+public class AccountVPAdapter extends FragmentStateAdapter {
+    public AccountVPAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
 

@@ -19,12 +19,12 @@ import com.example.shopfood.R;
 
 import java.util.List;
 
-public class AdapterRCVProduct extends RecyclerView.Adapter<AdapterRCVProduct.viewHolder>{
+public class FoodRCVAdapter extends RecyclerView.Adapter<FoodRCVAdapter.viewHolder>{
     Context context;
     List<Product> list;
     Intent intent;
 
-    public AdapterRCVProduct(Context context, List<Product> list) {
+    public FoodRCVAdapter(Context context, List<Product> list) {
         this.context = context;
         this.list = list;
     }

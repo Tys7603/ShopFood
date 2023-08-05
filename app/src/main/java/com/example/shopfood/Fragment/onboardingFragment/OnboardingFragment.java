@@ -1,4 +1,4 @@
-package com.example.shopfood.Fragment;
+package com.example.shopfood.Fragment.onboardingFragment;
 
 import android.os.Bundle;
 

@@ -16,11 +16,11 @@ import com.example.shopfood.R;
 
 import java.util.List;
 
-public class AdapterRCVMenuProduct extends RecyclerView.Adapter<AdapterRCVMenuProduct.viewHolder> {
+public class MenuRCVAdapter extends RecyclerView.Adapter<MenuRCVAdapter.viewHolder> {
     Context context;
     List<Product> list;
 
-    public AdapterRCVMenuProduct(Context context, List<Product> list) {
+    public MenuRCVAdapter(Context context, List<Product> list) {
         this.context = context;
         this.list = list;
     }

@@ -1,4 +1,4 @@
-package com.example.shopfood.Activity;
+package com.example.shopfood.Activity.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,11 +12,13 @@ import android.view.WindowManager;
 
 import com.example.shopfood.R;
 
-public class MealMenuActivity extends AppCompatActivity {
+public class OderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meal_menu);
+        setContentView(R.layout.activity_oder);
     }
+
+
 }

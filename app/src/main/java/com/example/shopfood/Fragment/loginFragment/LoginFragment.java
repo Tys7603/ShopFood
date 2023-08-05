@@ -1,4 +1,4 @@
-package com.example.shopfood.Fragment;
+package com.example.shopfood.Fragment.loginFragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,12 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.shopfood.Activity.MainActivity;
-import com.example.shopfood.Activity.ProfileActivity;
+import com.example.shopfood.Activity.main.MainActivity;
 import com.example.shopfood.Modal.User;
 import com.example.shopfood.R;
-import com.example.shopfood.api.CallApi;
-import com.example.shopfood.api.ManagerUrl;
+import com.example.shopfood.api.ApiService;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -29,8 +27,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class LoginFragment extends Fragment {
@@ -59,7 +55,7 @@ public class LoginFragment extends Fragment {
     }
 
     public void getListLogin() {
-        CallApi.callApi.getListUser().enqueue(new Callback<List<User>>() {
+        ApiService.API_SERVICE.getListUser().enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 Log.e("TAG", response.body().toString());

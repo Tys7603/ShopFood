@@ -1,4 +1,4 @@
-package com.example.shopfood.Fragment;
+package com.example.shopfood.Fragment.loginFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,19 +10,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.shopfood.Adapter.ViewPager2Adapte_Acount;
+import com.example.shopfood.Adapter.AccountVPAdapter;
 import com.example.shopfood.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 
-public class AcountFragment extends Fragment {
+public class AccountFragment extends Fragment {
 
-    ViewPager2Adapte_Acount viewPager2Adapte_acount;
+    AccountVPAdapter viewPager2Adapte_acount;
     ViewPager2 viewPager2;
     TabLayout tabLayout;
 
-    public AcountFragment() {
+    public AccountFragment() {
         // Required empty public constructor
     }
 
@@ -39,7 +39,7 @@ public class AcountFragment extends Fragment {
 
         viewPager2 = view.findViewById(R.id.viewPager2_acount);
         tabLayout = view.findViewById(R.id.tabLayout2);
-        viewPager2Adapte_acount = new ViewPager2Adapte_Acount(getActivity());
+        viewPager2Adapte_acount = new AccountVPAdapter(getActivity());
 
         viewPager2.setAdapter(viewPager2Adapte_acount);
         new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {

@@ -14,10 +14,10 @@ import com.example.shopfood.R;
 
 import java.util.List;
 
-public class AdapterViewPager2Auto extends RecyclerView.Adapter<AdapterViewPager2Auto.viewHolder> {
+public class MainVPAdapter extends RecyclerView.Adapter<MainVPAdapter.viewHolder> {
     List<Photo> list;
     Context context;
-    public AdapterViewPager2Auto(List<Photo> list,  Context context) {
+    public MainVPAdapter(List<Photo> list, Context context) {
         this.list = list;
         this.context = context;
     }

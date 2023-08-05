@@ -1,24 +1,18 @@
-package com.example.shopfood.Activity;
+package com.example.shopfood.Activity.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.example.shopfood.Adapter.AdapterRCVMenuProduct;
-import com.example.shopfood.Adapter.AdapterRCVProduct;
-import com.example.shopfood.Adapter.AdapterViewPager2Auto;
+import com.example.shopfood.Adapter.MenuRCVAdapter;
+import com.example.shopfood.Adapter.FoodRCVAdapter;
+import com.example.shopfood.Adapter.MainVPAdapter;
 import com.example.shopfood.DepthPageTransformer;
 import com.example.shopfood.Modal.Photo;
 import com.example.shopfood.Modal.Product;
@@ -32,13 +26,13 @@ import me.relex.circleindicator.CircleIndicator3;
 public class MainActivity extends AppCompatActivity {
     List<Product> list;
     List<Photo> listPhoto;
-    AdapterRCVProduct adapterRCVProduct;
-    AdapterRCVMenuProduct adapterRCVMenuProduct;
+    FoodRCVAdapter FoodRCVAdapter;
+    MenuRCVAdapter menuRCVAdapter;
     RecyclerView rcvProduct;
     RecyclerView rcvMenuProduct;
     LinearLayoutManager layoutManager;
     ViewPager2 mViewPager2;
-    AdapterViewPager2Auto mAdapterViewPager2Auto;
+    MainVPAdapter mMainVPAdapter;
     CircleIndicator3 mIndicator3;
     LinearLayout btnActivityCart, btnActivityProfile, btnActivityChat;
     Handler handler = new Handler();
@@ -57,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        hidenStatus();
         // add list
         addList();
         // set adapter
@@ -91,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
         listPhoto.add(new Photo(R.drawable.banner));
     }
     public void setAdapterViewPager2Auto(){
-        mAdapterViewPager2Auto = new AdapterViewPager2Auto(listPhoto, getApplicationContext());
-        mViewPager2.setAdapter(mAdapterViewPager2Auto);
+        mMainVPAdapter = new MainVPAdapter(listPhoto, getApplicationContext());
+        mViewPager2.setAdapter(mMainVPAdapter);
         mIndicator3.setViewPager(mViewPager2);
         mViewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
@@ -107,18 +100,18 @@ public class MainActivity extends AppCompatActivity {
     public void setAdapterRCVProduct(){
         // rcv product
         layoutManager = new LinearLayoutManager(getApplicationContext());
-        adapterRCVProduct = new AdapterRCVProduct(getApplicationContext(), list);
+        FoodRCVAdapter = new FoodRCVAdapter(getApplicationContext(), list);
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         rcvProduct.setLayoutManager(layoutManager);
-        rcvProduct.setAdapter(adapterRCVProduct);
+        rcvProduct.setAdapter(FoodRCVAdapter);
     }
     public void setAdapterRCVMenuProduct(){
         // rcv menu prodcut
         layoutManager = new LinearLayoutManager(getApplicationContext());
-        adapterRCVMenuProduct = new AdapterRCVMenuProduct(getApplicationContext(), list);
+        menuRCVAdapter = new MenuRCVAdapter(getApplicationContext(), list);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         rcvMenuProduct.setLayoutManager(layoutManager);
-        rcvMenuProduct.setAdapter(adapterRCVMenuProduct);
+        rcvMenuProduct.setAdapter(menuRCVAdapter);
     }
     public void onClick(){
         // chuyen man hinh
@@ -126,37 +119,12 @@ public class MainActivity extends AppCompatActivity {
         btnActivityProfile.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
         btnActivityChat.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
     }
-    public void hidenStatus(){
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
-            setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true);
-        }
-        if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-
-        if (Build.VERSION.SDK_INT >= 21) {
-            setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
-
-    }
-    public static void setWindowFlag(Activity activity, final int bits, boolean on) {
-        Window win = activity.getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
-    }
 
     @Override
     protected void onPause() {
         super.onPause();
         handler.removeCallbacks(runnable);
     }
-
     @Override
     protected void onResume() {
         super.onResume();

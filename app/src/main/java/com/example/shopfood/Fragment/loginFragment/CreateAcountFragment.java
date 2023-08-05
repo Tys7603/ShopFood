@@ -1,4 +1,4 @@
-package com.example.shopfood.Fragment;
+package com.example.shopfood.Fragment.loginFragment;
 
 import android.os.Bundle;
 
@@ -16,8 +16,8 @@ import android.widget.Toast;
 import com.example.shopfood.Modal.StatusUser;
 import com.example.shopfood.Modal.User;
 import com.example.shopfood.R;
-import com.example.shopfood.api.CallApi;
-import com.example.shopfood.api.ManagerUrl;
+import com.example.shopfood.api.ApiService;
+import com.example.shopfood.api.Constant;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -70,11 +70,11 @@ public class CreateAcountFragment extends Fragment {
     }
     public void getListUser() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ManagerUrl.URL_BASE)
+                .baseUrl(Constant.URL_BASE)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        CallApi callApi = retrofit.create(CallApi.class);
-        Call<List<User>> call = callApi.getListUser();
+        ApiService apiService = retrofit.create(ApiService.class);
+        Call<List<User>> call = apiService.getListUser();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
@@ -94,12 +94,12 @@ public class CreateAcountFragment extends Fragment {
     }
     public void createUser(String email , String name, String pass){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ManagerUrl.URL_BASE)
+                .baseUrl(Constant.URL_BASE)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-       CallApi  callApi = retrofit.create(CallApi.class);
-       Call<StatusUser> call = callApi.createUser(email,name,pass);
+       ApiService apiService = retrofit.create(ApiService.class);
+       Call<StatusUser> call = apiService.createUser(email,name,pass);
        call.enqueue(new Callback<StatusUser>() {
            @Override
            public void onResponse(Call<StatusUser> call, Response<StatusUser> response) {
