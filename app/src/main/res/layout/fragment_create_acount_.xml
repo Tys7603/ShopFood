@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.loginFragment.CreateAcountFragment" >
+    tools:context=".fragment.loginFragment.CreateFragment" >
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tv_fullNameLayout"
@@ -72,7 +72,7 @@
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-
+        app:passwordToggleEnabled="true"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_emailLauout"

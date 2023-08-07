@@ -15,33 +15,33 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.main.ProfileActivity"
+            android:name=".activity.main.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.main.ChatActivity"
+            android:name=".activity.main.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.MealMenuActivity"
+            android:name=".activity.MealMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.FinishOderActivity"
+            android:name=".activity.FinishOderActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.main.OderActivity"
+            android:name=".activity.main.OderActivity"
             android:exported="false"
             android:label="@string/title_activity_oder"
             android:theme="@style/Theme.ShopFood.NoActionBar" />
         <activity
-            android:name=".Activity.DetailMenuActivity"
+            android:name=".activity.DetailMenuActivity"
             android:exported="false" />
 
         <activity
-            android:name=".Activity.welcome.OnboardingActivity"
+            android:name=".activity.welcome.OnboardingActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".Activity.welcome.WelcomeActivity"
+            android:name=".activity.welcome.WelcomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.main.MainActivity"
+            android:name=".activity.main.MainActivity"
             android:exported="true" />
     </application>
 

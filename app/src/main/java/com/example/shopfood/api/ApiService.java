@@ -1,7 +1,7 @@
 package com.example.shopfood.api;
 
-import com.example.shopfood.Modal.StatusUser;
-import com.example.shopfood.Modal.User;
+import com.example.shopfood.modal.StatusUser;
+import com.example.shopfood.modal.User;
 
 import java.util.List;
 
@@ -19,11 +19,17 @@ public interface ApiService {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService.class);
-
-    @GET(Constant.URL_GET_LIST_USER)
-    Call<List<User>> getListUser ();
+    // user
+    @FormUrlEncoded
+    @POST(Constant.LOGIN_USER)
+    Call<StatusUser> login (@Field("email") String email, @Field("password") String password);
 
     @FormUrlEncoded
-    @POST(Constant.URL_CREATE_ACCOUNT)
-    Call<StatusUser> createUser(@Field("email") String email, @Field("fullname") String fullName, @Field("password") String password);
+    @POST(Constant.CREATE_ACCOUNT)
+    Call<StatusUser> createUser(@Field("email") String email, @Field("password") String password,  @Field("name") String fullName);
+
+    @FormUrlEncoded
+    @POST(Constant.UPDATE_ACCOUNT)
+    Call<StatusUser> updateUser(@Field("email") String email, @Field("password") String password,
+                                @Field("name") String fullName,@Field("sdt") String sdt,  @Field("address") String address);
 }

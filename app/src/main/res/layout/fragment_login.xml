@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.loginFragment.LoginFragment">
+    tools:context=".fragment.loginFragment.LoginFragment">
 
 
     <TextView
@@ -57,7 +57,7 @@
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-
+        app:passwordToggleEnabled="true"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_emailLauout"
