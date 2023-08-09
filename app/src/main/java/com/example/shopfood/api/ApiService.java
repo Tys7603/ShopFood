@@ -29,7 +29,11 @@ public interface ApiService {
     Call<StatusUser> createUser(@Field("email") String email, @Field("password") String password,  @Field("name") String fullName);
 
     @FormUrlEncoded
-    @POST(Constant.UPDATE_ACCOUNT)
-    Call<StatusUser> updateUser(@Field("email") String email, @Field("password") String password,
-                                @Field("name") String fullName,@Field("sdt") String sdt,  @Field("address") String address);
+    @POST(Constant.UPDATE_INFORMATION_ACCOUNT)
+    Call<StatusUser> updateInformationUser(@Field("email") String email, @Field("password") String password,
+                                           @Field("name") String fullName);
+    @FormUrlEncoded
+    @POST(Constant.UPDATE_CONTACT_ACCOUNT)
+    Call<StatusUser> updateContactUser(@Field("email") String email,
+                                       @Field("sdt") String sdt,  @Field("address") String address);
 }
