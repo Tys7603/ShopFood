@@ -12,7 +12,7 @@
 
 
     <ImageView
-        android:id="@+id/productImg"
+        android:id="@+id/foodImg"
         android:layout_width="82dp"
         android:layout_height="82dp"
         android:layout_marginStart="11dp"
@@ -32,7 +32,7 @@
         android:layout_marginBottom="14dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/productImg"
+        app:layout_constraintStart_toEndOf="@+id/foodImg"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -56,7 +56,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/productPrice"
+            android:id="@+id/foodPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

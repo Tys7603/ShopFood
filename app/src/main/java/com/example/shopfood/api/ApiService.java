@@ -1,5 +1,6 @@
 package com.example.shopfood.api;
 
+import com.example.shopfood.modal.StatusFood;
 import com.example.shopfood.modal.StatusUser;
 import com.example.shopfood.modal.User;
 
@@ -36,4 +37,17 @@ public interface ApiService {
     @POST(Constant.UPDATE_CONTACT_ACCOUNT)
     Call<StatusUser> updateContactUser(@Field("email") String email,
                                        @Field("sdt") String sdt,  @Field("address") String address);
+
+    //food
+    @POST(Constant.GET_LIST_FOOD)
+    Call<StatusFood> getListFood ();
+    @FormUrlEncoded
+    @POST(Constant.GET_LIST_FOOD_BY_ID)
+    Call<StatusFood> getListFoodBurger (@Field("id") String id);
+    @FormUrlEncoded
+    @POST(Constant.GET_LIST_FOOD_BY_ID)
+    Call<StatusFood> getListFoodPizza (@Field("id") String id);
+    @FormUrlEncoded
+    @POST(Constant.GET_LIST_FOOD_BY_ID)
+    Call<StatusFood> getListFoodSandwich (@Field("id") String id);
 }

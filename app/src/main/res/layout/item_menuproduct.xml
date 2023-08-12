@@ -3,65 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="120dp"
     app:cardCornerRadius="15dp"
-    android:layout_margin="10dp"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="10dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="20dp">
+        >
 
-        <ImageView
-            android:id="@+id/imgMenuProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="18dp"
-            android:src="@drawable/pic_menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+       <androidx.cardview.widget.CardView
+           android:id="@+id/cardViewMenu"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="16dp"
+           android:layout_marginTop="8dp"
+           android:layout_marginBottom="8dp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:cardCornerRadius="10dp">
+           <ImageView
+               android:id="@+id/imgMenuFood"
+               android:layout_width="105dp"
+               android:layout_height="70dp"
+
+               android:src="@drawable/pic_menu"
+               />
+       </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/nameProductMenu"
-            android:layout_width="wrap_content"
+            android:id="@+id/nameMenuFood"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="21dp"
-            android:text="Pepper Pizza"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/red_hat_display_medium"
+            android:text="Pepper Pizza"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imgMenuProduct"
-            app:layout_constraintStart_toEndOf="@+id/imgMenuProduct"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout1"
+            app:layout_constraintStart_toEndOf="@+id/cardViewMenu"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/hintNameProductMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="5kg box of Pizza"
+            android:id="@+id/contentMenuFood"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:ellipsize="end"
             android:fontFamily="@font/red_hat_display_medium"
+            android:maxLines="2"
+            android:text="5kg box of Pizza"
             android:textColor="#8E8A8A"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/nameProductMenu"
-            app:layout_constraintTop_toBottomOf="@+id/nameProductMenu" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardViewMenu"
+            app:layout_constraintTop_toBottomOf="@+id/nameMenuFood" />
 
-        <TextView
-            android:id="@+id/priceProductMenu"
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/red_hat_display_bold"
-            android:text="$15"
-            android:textColor="@color/primary"
-            android:textSize="22sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:id="@+id/priceMenuFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/red_hat_display_bold"
+                android:text="$15"
+                android:textColor="@color/primary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/red_hat_display_bold"
+                android:letterSpacing="0.02"
+                android:text="00"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

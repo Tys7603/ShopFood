@@ -1,6 +1,7 @@
 package com.example.shopfood.activity.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -9,22 +10,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.shopfood.adapter.MenuRCVAdapter;
 import com.example.shopfood.adapter.FoodRCVAdapter;
 import com.example.shopfood.adapter.MainVPAdapter;
 import com.example.shopfood.DepthPageTransformer;
+import com.example.shopfood.interfacee.MainInterface;
 import com.example.shopfood.modal.Photo;
-import com.example.shopfood.modal.Product;
+import com.example.shopfood.modal.Food;
 import com.example.shopfood.R;
+import com.example.shopfood.presenter.MainPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator3;
 
-public class MainActivity extends AppCompatActivity {
-    List<Product> list;
+public class MainActivity extends AppCompatActivity implements MainInterface {
     List<Photo> listPhoto;
     FoodRCVAdapter FoodRCVAdapter;
     MenuRCVAdapter menuRCVAdapter;
@@ -34,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 mViewPager2;
     MainVPAdapter mMainVPAdapter;
     CircleIndicator3 mIndicator3;
-    LinearLayout btnActivityCart, btnActivityProfile, btnActivityChat;
+    LinearLayout btnActivityCart, btnActivityProfile, btnActivityChat, btnBurger, btnPizza, btnSandwich;
+    TextView tvBurger, tvPizza, tvSandwich;
+    MainPresenter mMainPresenter;
     Handler handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -54,14 +59,13 @@ public class MainActivity extends AppCompatActivity {
         // add list
         addList();
         // set adapter
-        setAdapterRCVProduct();
-        setAdapterRCVMenuProduct();
         setAdapterViewPager2Auto();
         // on click
          onClick();
     }
 
     public void init(){
+        mMainPresenter = new MainPresenter(this);
         btnActivityCart = findViewById(R.id.btnActivityCart);
         btnActivityProfile = findViewById(R.id.btnActivityProfile);
         btnActivityChat = findViewById(R.id.btnActivityChat);
@@ -69,14 +73,27 @@ public class MainActivity extends AppCompatActivity {
         rcvMenuProduct = findViewById(R.id.productMenuRCV);
         mViewPager2 = findViewById(R.id.viewPagerAuto);
         mIndicator3 = findViewById(R.id.indicatorHome);
+        btnBurger = findViewById(R.id.btnBurger);
+        btnPizza = findViewById(R.id.btnPizza);
+        btnSandwich = findViewById(R.id.btnSandwich);
+        tvBurger = findViewById(R.id.tvBurger);
+        tvPizza = findViewById(R.id.tvPizza);
+        tvSandwich = findViewById(R.id.tvSandwich);
+    }
+
+    public void onClick(){
+        // chuyen man hinh
+        btnActivityCart.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, OderActivity.class)));
+        btnActivityProfile.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
+        btnActivityChat.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
+        // set list food theo loai
+        btnBurger.setOnClickListener(view -> mMainPresenter.getListFoodBurger("1"));
+        btnPizza.setOnClickListener(view -> mMainPresenter.getListFoodPizza("2"));
+        btnSandwich.setOnClickListener(view -> mMainPresenter.getListFoodSandwich("3"));
     }
     public void addList(){
-        list = new ArrayList<>();
-        list.add(new Product(1,"Burger",10));
-        list.add(new Product(2,"Burger",12));
-        list.add(new Product(3,"Burger",13));
-        list.add(new Product(4,"Burger",15));
-        list.add(new Product(5,"Burger",17));
+        mMainPresenter.getListFood();
+        mMainPresenter.getListFoodBurger("1");
         // list img
         listPhoto = new ArrayList<>();
         listPhoto.add(new Photo(R.drawable.banner));
@@ -97,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         });
         mViewPager2.setPageTransformer(new DepthPageTransformer());
     }
-    public void setAdapterRCVProduct(){
+    public void setAdapterRCVProduct(List<Food> list){
         // rcv product
         layoutManager = new LinearLayoutManager(getApplicationContext());
         FoodRCVAdapter = new FoodRCVAdapter(getApplicationContext(), list);
@@ -105,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         rcvProduct.setLayoutManager(layoutManager);
         rcvProduct.setAdapter(FoodRCVAdapter);
     }
-    public void setAdapterRCVMenuProduct(){
+    public void setAdapterRCVMenuProduct(List<Food> list){
         // rcv menu prodcut
         layoutManager = new LinearLayoutManager(getApplicationContext());
         menuRCVAdapter = new MenuRCVAdapter(getApplicationContext(), list);
@@ -113,12 +130,7 @@ public class MainActivity extends AppCompatActivity {
         rcvMenuProduct.setLayoutManager(layoutManager);
         rcvMenuProduct.setAdapter(menuRCVAdapter);
     }
-    public void onClick(){
-        // chuyen man hinh
-        btnActivityCart.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, OderActivity.class)));
-        btnActivityProfile.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
-        btnActivityChat.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
-    }
+
 
     @Override
     protected void onPause() {
@@ -129,5 +141,46 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         handler.postDelayed(runnable, 3000);
+    }
+
+    @Override
+    public void listFood(List<Food> foodList) {
+        setAdapterRCVMenuProduct(foodList);
+    }
+
+    @Override
+    public void listFoodBurger(List<Food> foodListBurger) {
+        btnBurger.setBackgroundResource(R.drawable.bgr_item_bottom_menu1);
+        btnPizza.setBackgroundResource(R.drawable.bgr_item_bottom_menu2);
+        btnSandwich.setBackgroundResource(R.drawable.bgr_item_bottom_menu2);
+        tvBurger.setTextColor(getResources().getColor(R.color.white));
+        tvPizza.setTextColor(getResources().getColor(R.color.black));
+        tvSandwich.setTextColor(getResources().getColor(R.color.black));
+        setAdapterRCVProduct(foodListBurger);
+
+    }
+
+    @Override
+    public void listFoodPizza(List<Food> foodListPizza) {
+        btnBurger.setBackgroundResource(R.drawable.bgr_item_bottom_menu2);
+        btnPizza.setBackgroundResource(R.drawable.bgr_item_bottom_menu1);
+        btnSandwich.setBackgroundResource(R.drawable.bgr_item_bottom_menu2);
+        tvBurger.setTextColor(getResources().getColor(R.color.black));
+        tvPizza.setTextColor(getResources().getColor(R.color.white));
+        tvSandwich.setTextColor(getResources().getColor(R.color.black));
+        setAdapterRCVProduct(foodListPizza);
+
+    }
+
+    @Override
+    public void listFoodSandwich(List<Food> foodListSandwich) {
+        btnBurger.setBackgroundResource(R.drawable.bgr_item_bottom_menu2);
+        btnPizza.setBackgroundResource(R.drawable.bgr_item_bottom_menu2);
+        btnSandwich.setBackgroundResource(R.drawable.bgr_item_bottom_menu1);
+        tvBurger.setTextColor(getResources().getColor(R.color.black));
+        tvPizza.setTextColor(getResources().getColor(R.color.black));
+        tvSandwich.setTextColor(getResources().getColor(R.color.white));
+        setAdapterRCVProduct(foodListSandwich);
+
     }
 }

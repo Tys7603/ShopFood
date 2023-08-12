@@ -11,16 +11,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.shopfood.modal.Product;
+import com.bumptech.glide.Glide;
+import com.example.shopfood.modal.Food;
 import com.example.shopfood.R;
 
 import java.util.List;
 
 public class MenuRCVAdapter extends RecyclerView.Adapter<MenuRCVAdapter.viewHolder> {
     Context context;
-    List<Product> list;
+    List<Food> list;
 
-    public MenuRCVAdapter(Context context, List<Product> list) {
+    public MenuRCVAdapter(Context context, List<Food> list) {
         this.context = context;
         this.list = list;
     }
@@ -35,9 +36,10 @@ public class MenuRCVAdapter extends RecyclerView.Adapter<MenuRCVAdapter.viewHold
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         if(list != null){
-            holder.productMenuImg.setImageResource(R.drawable.pic_menu);
-            holder.productMenuName.setText(list.get(position).getProductName());
-            holder.productMenuPrice.setText(String.valueOf(list.get(position).getProductPrice()));
+            Glide.with(context).load(list.get(position).getImage()).into(holder.imgMenuFood);
+            holder.nameMenuFood.setText(list.get(position).getName());
+            holder.contentMenuFood.setText(list.get(position).getContent());
+            holder.priceMenuFood.setText(String.valueOf(list.get(position).getPrice()));
         }else {
             Toast.makeText(context, "List product meal menu null", Toast.LENGTH_SHORT).show();
         }
@@ -46,19 +48,22 @@ public class MenuRCVAdapter extends RecyclerView.Adapter<MenuRCVAdapter.viewHold
 
     @Override
     public int getItemCount() {
+        if (list == null){
+            return 0;
+        }
         return list.size();
     }
 
     public class viewHolder extends RecyclerView.ViewHolder {
-        ImageView productMenuImg;
-        TextView productMenuName, productMenuPrice;
+        ImageView imgMenuFood;
+        TextView nameMenuFood, priceMenuFood, contentMenuFood;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-            productMenuImg = itemView.findViewById(R.id.imgMenuProduct);
-            productMenuName = itemView.findViewById(R.id.nameProductMenu);
-            productMenuPrice = itemView.findViewById(R.id.priceProductMenu);
-
+            imgMenuFood = itemView.findViewById(R.id.imgMenuFood);
+            nameMenuFood = itemView.findViewById(R.id.nameMenuFood);
+            priceMenuFood = itemView.findViewById(R.id.priceMenuFood);
+            contentMenuFood = itemView.findViewById(R.id.contentMenuFood);
         }
     }
 
