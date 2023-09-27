@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/starProduct">
 
             <ImageView
-                android:id="@+id/foodImg"
+                android:id="@+id/foodImgOrder"
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
@@ -89,7 +89,7 @@
             android:text="100 gr chicken + tomato + cheese  Lettuce"
             android:textColor="@color/Gray1"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foodName" />
@@ -106,7 +106,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/foodPrice"
+                android:id="@+id/foodPriceOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -127,16 +127,6 @@
                 android:textColor="@color/primary"
                 android:textSize="16sp" />
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/addToCartButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/add_buy"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

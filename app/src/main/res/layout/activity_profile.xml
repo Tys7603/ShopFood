@@ -8,7 +8,7 @@
     tools:context=".activity.main.ProfileActivity">
 
     <LinearLayout
-        android:id="@+id/btn_backProfile"
+        android:id="@+id/btn_backMenu"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="33dp"
@@ -73,7 +73,7 @@
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_backProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_backMenu" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView13"
+            android:id="@+id/ivProfile"
             android:layout_width="0dp"
             android:layout_height="0dp"
 

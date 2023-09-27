@@ -42,16 +42,12 @@ public class AccountFragment extends Fragment {
         viewPager2Adapte_acount = new AccountVPAdapter(getActivity());
 
         viewPager2.setAdapter(viewPager2Adapte_acount);
-        new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position){
-                    case 0 : tab.setText("Create Account");
-
-                        break;
-                    case 1 : tab.setText("Login");
-                        break;
-                }
+        new TabLayoutMediator(tabLayout, viewPager2, (tab, position) -> {
+            switch (position){
+                case 0 : tab.setText("Create Account");
+                    break;
+                case 1 : tab.setText("Login");
+                    break;
             }
         }).attach();
 

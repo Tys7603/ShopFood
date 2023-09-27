@@ -51,7 +51,7 @@
                     android:src="@drawable/icon_location" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvDiachiMain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -69,13 +69,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imgHome"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivAnhMain"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="32dp"
-                android:src="@drawable/imgtaskbar"
+                android:src="@drawable/weocome"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="1dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -273,7 +275,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tvMealMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"

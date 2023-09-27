@@ -46,11 +46,13 @@ public class FoodRCVAdapter extends RecyclerView.Adapter<FoodRCVAdapter.viewHold
             holder.foodContent.setText(list.get(position).getContent());
 
             holder.layout_itemProduct.setOnClickListener(view -> {
-//                intent = new Intent(context, DetailMenuActivity.class);
-//                intent.putExtra("productImg",holder.productImg.getImageAlpha());
-//                intent.putExtra("productName",holder.productName.getText().toString());
-//                intent.putExtra("productPrice",holder.productPrice.getText().toString());
-//                context.startActivity(intent);
+                intent = new Intent(context, DetailMenuActivity.class);
+                intent.putExtra("idFood", list.get(position).getId());
+                intent.putExtra("foodImg", list.get(position).getImage());
+                intent.putExtra("foodName",list.get(position).getName());
+                intent.putExtra("foodPrice",String.valueOf(list.get(position).getPrice()));
+                intent.putExtra("foodContent",list.get(position).getContent());
+                context.startActivity(intent);
             });
         }else {
             Toast.makeText(context, "List null", Toast.LENGTH_SHORT).show();
@@ -73,9 +75,9 @@ public class FoodRCVAdapter extends RecyclerView.Adapter<FoodRCVAdapter.viewHold
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             layout_itemProduct = itemView.findViewById(R.id.layout_itemProduct);
-            foodImg = itemView.findViewById(R.id.foodImg);
+            foodImg = itemView.findViewById(R.id.foodImgOrder);
             foodName = itemView.findViewById(R.id.foodName);
-            foodPrice = itemView.findViewById(R.id.foodPrice);
+            foodPrice = itemView.findViewById(R.id.foodPriceOrder);
             foodContent = itemView.findViewById(R.id.foodContent);
         }
     }

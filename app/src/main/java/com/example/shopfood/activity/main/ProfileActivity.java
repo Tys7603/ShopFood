@@ -1,12 +1,21 @@
 package com.example.shopfood.activity.main;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,22 +23,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.shopfood.activity.welcome.OnboardingActivity;
 import com.example.shopfood.R;
 import com.example.shopfood.interfacee.ProfileInterface;
 import com.example.shopfood.modal.User;
 import com.example.shopfood.presenter.ProfilePresenter;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.google.gson.Gson;
 
 public class ProfileActivity extends AppCompatActivity implements ProfileInterface {
     TextView tvName, tvEmail, tvPass, tvSDT, tvAddress, tvRole;
     Button btnLogOut, btnCancel, btnUpdate;
     LinearLayout btnBack;
-    ImageView ivEditInformation, ivEditContact;
+    ImageView ivEditInformation, ivEditContact, ivChangeImage, ivProfile;
     Gson mGson;
     ProfilePresenter mProfilePresenter;
     EditText etDialog1, etDialog2, etDialog3;
     Dialog mDialog;
+    Uri mUri;
+    StorageReference storageRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,22 +64,42 @@ public class ProfileActivity extends AppCompatActivity implements ProfileInterfa
         tvAddress = findViewById(R.id.tv_addressProfile);
         tvSDT = findViewById(R.id.tv_sdtProfile);
         tvRole = findViewById(R.id.tv_roleProfile);
-        btnBack = findViewById(R.id.btn_backProfile);
+        btnBack = findViewById(R.id.btn_backMenu);
         btnLogOut = findViewById(R.id.btn_logOut);
         ivEditContact = findViewById(R.id.ivEditContactP);
         ivEditInformation = findViewById(R.id.ivEditInforP);
+        ivChangeImage = findViewById(R.id.ivDoiHinhAnh);
+        ivProfile = findViewById(R.id.ivProfile);
     }
     public void onClick(){
-        btnBack.setOnClickListener(view -> startActivity(new Intent(ProfileActivity.this, MainActivity.class)));
+        btnBack.setOnClickListener(view ->{
+            if (mUri != null){
+                uploadImgWithFireBase();
+            }
+            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+        });
         btnLogOut.setOnClickListener(view -> logOut());
         ivEditInformation.setOnClickListener(view -> editInformation());
         ivEditContact.setOnClickListener(view -> editContact());
+        ivChangeImage.setOnClickListener(view -> choseImgFromGallery());
     }
+
+    // image
+    private void choseImgFromGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        mActivityResultLauncher.launch(Intent.createChooser(intent,"Da chon hinh nah"));
+    }
+
     // set du lieu len form
     public void setText(){
         User user = convertObject();
         tvName.setText(user.getName());
         tvEmail.setText(user.getEmail());
+        if(!user.getAvatar().isEmpty()){
+            Glide.with(this).load(user.getAvatar()).into(ivProfile);
+        }
         tvPass.setText(user.getPassword());
         tvSDT.setText(user.getSdt());
         tvAddress.setText(user.getAddress());
@@ -82,8 +118,38 @@ public class ProfileActivity extends AppCompatActivity implements ProfileInterfa
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
+       if (mUri != null){
+           uploadImgWithFireBase();
+       }
         startActivity(new Intent(ProfileActivity.this, OnboardingActivity.class));
     }
+
+    // upload file voi firebase
+    private void uploadImgWithFireBase() {
+        ProgressDialog mProgressDialog = ProgressDialog.show(this, "","Updating ... ");
+        storageRef = FirebaseStorage.getInstance().getReference().child("images/"+mUri.getLastPathSegment());
+        storageRef.putFile(mUri)
+                .addOnSuccessListener(taskSnapshot -> {
+                    ivProfile.setImageURI(null);
+                    storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        User user = convertObject();
+                        String email = user.getEmail();
+                        String avatar = uri.toString();
+                        // set
+                        user.setAvatar(avatar);
+                        mProfilePresenter.updateAvatarUser(email, avatar, user);
+                        mProgressDialog.dismiss();
+                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                    })
+                   .addOnFailureListener(e -> {
+
+                   });
+                })
+                .addOnFailureListener(e ->{
+                });
+    }
+
+
     private void editContact() {
         mDialog = new Dialog(this);
         mDialog.setContentView(R.layout.layout_edit_profile);
@@ -155,6 +221,32 @@ public class ProfileActivity extends AppCompatActivity implements ProfileInterfa
         btnCancel = mDialog.findViewById(R.id.btnCancelD);
         btnUpdate = mDialog.findViewById(R.id.btnUpdateD);
     }
+
+
+    // lang nghe su kien cua he thong
+    ActivityResultLauncher mActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK){
+                    Intent data = result.getData();
+                    if (data == null){
+                        return;
+                    }
+                    mUri = data.getData();
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mUri);
+                        ivProfile.setImageBitmap(bitmap);
+                    }catch (Exception e){
+
+                    }
+                }
+            });
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     @Override
     public void onValidate() {
         Toast.makeText(this, "Nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();

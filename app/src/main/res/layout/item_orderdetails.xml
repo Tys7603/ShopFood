@@ -2,17 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="380dp"
+    android:id="@+id/itemCart"
+    android:layout_width="match_parent"
     android:layout_height="115dp"
-    android:background="@drawable/shape_radius15_white"
-    android:layout_marginTop="20dp"
-    android:layout_marginStart="14dp"
-    android:layout_marginEnd="14dp"
-    android:id="@+id/itemCart">
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/shape_radius15_white">
 
 
     <ImageView
-        android:id="@+id/foodImg"
+        android:id="@+id/foodImgOrder"
         android:layout_width="82dp"
         android:layout_height="82dp"
         android:layout_marginStart="11dp"
@@ -21,7 +19,7 @@
         android:src="@drawable/img_food_demo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -32,11 +30,11 @@
         android:layout_marginBottom="14dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/foodImg"
+        app:layout_constraintStart_toEndOf="@+id/foodImgOrder"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/productCurrent"
+            android:id="@+id/foodNameOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/red_hat_display_bold"
@@ -51,25 +49,46 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/red_hat_display_medium"
             android:letterSpacing="0.02"
-            android:text="Burger Factory LTD"
+            android:text="Factory LTD"
             android:textColor="@color/Gray1"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/foodPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/red_hat_display_bold"
-            android:letterSpacing="0.02"
-            android:text="$ 20"
-            android:textColor="@color/primary"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentFoodDetail">
+
+            <TextView
+                android:id="@+id/foodPriceOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/red_hat_display_bold"
+                android:letterSpacing="0.02"
+                android:text="$20"
+                android:textColor="@color/primary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/red_hat_display_bold"
+                android:letterSpacing="0.02"
+                android:text="00"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="11dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -84,7 +103,7 @@
             app:srcCompat="@drawable/ic_reduce_quantity" />
 
         <TextView
-            android:id="@+id/productQuantity"
+            android:id="@+id/foodQuantityOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -100,6 +119,15 @@
             app:srcCompat="@drawable/ic_add_quantity" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/icons8_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

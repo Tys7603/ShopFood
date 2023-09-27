@@ -7,9 +7,9 @@
     tools:context=".activity.DetailMenuActivity">
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/foodImgDetail"
         android:layout_width="0dp"
-        android:layout_height="490dp"
+        android:layout_height="280dp"
         android:layout_marginTop="-10dp"
         android:src="@drawable/img_detail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,6 @@
         android:id="@+id/scrollView1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="358dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bg_deltai"
         android:scrollbars="horizontal"
@@ -50,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/foodImgDetail">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -116,7 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
                 <TextView
-                    android:id="@+id/textView232"
+                    android:id="@+id/nameFoodDetial"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
 
@@ -136,7 +135,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView232"
+                    app:layout_constraintTop_toBottomOf="@+id/nameFoodDetial"
                     tools:ignore="MissingConstraints">
 
                     <ImageView
@@ -157,7 +156,7 @@
                         android:textColor="#BFBBB9"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView232" />
+                        app:layout_constraintTop_toBottomOf="@+id/nameFoodDetial" />
 
                     <ImageView
                         android:id="@+id/dtBag"
@@ -192,7 +191,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
                     <TextView
-                        android:id="@+id/contentDetail"
+                        android:id="@+id/contentFoodDetail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -200,74 +199,58 @@
                         android:lineSpacingExtra="5sp"
                         android:text="Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum."
                         android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
-                        android:id="@+id/linearLayout5"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="16dp"
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
-                        android:orientation="vertical"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/linearLayout1"
+                        app:layout_constraintTop_toBottomOf="@+id/contentFoodDetail"
+                        app:srcCompat="@drawable/icons_price" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/contentDetail">
+                        app:layout_constraintTop_toBottomOf="@+id/contentFoodDetail">
 
                         <TextView
-                            android:id="@+id/textView99"
+                            android:id="@+id/foodPriceDetail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/red_hat_display_medium"
-                            android:text=" ♥  Chicken"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/contentDetail" />
+                            android:layout_weight="1"
+                            android:fontFamily="@font/red_hat_display_bold"
+                            android:letterSpacing="0.02"
+                            android:text="$20"
+                            android:textColor="@color/primary"
+                            android:textSize="25sp" />
 
                         <TextView
-                            android:id="@+id/textView999"
+                            android:id="@+id/textView8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/red_hat_display_medium"
-                            android:text=" ♥  Tomatoa"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView99" />
-
-                        <TextView
-                            android:id="@+id/textView9999"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/red_hat_display_medium"
-                            android:text=" ♥  Lettusa"
-                            android:textColor="@color/black"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView999" />
+                            android:layout_weight="1"
+                            android:fontFamily="@font/red_hat_display_bold"
+                            android:letterSpacing="0.02"
+                            android:text="00"
+                            android:textColor="@color/primary"
+                            android:textSize="20sp" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/contentDetail1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/red_hat_display_medium"
-                        android:text="Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum."
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

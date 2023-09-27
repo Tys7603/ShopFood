@@ -12,7 +12,7 @@
 
 
     <ImageView
-        android:id="@+id/foodImg"
+        android:id="@+id/foodImgOrder"
         android:layout_width="82dp"
         android:layout_height="82dp"
         android:layout_marginStart="10dp"
@@ -32,11 +32,11 @@
         android:layout_marginBottom="14dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/foodImg"
+        app:layout_constraintStart_toEndOf="@+id/foodImgOrder"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/productCurrent"
+            android:id="@+id/foodNameOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/red_hat_display_bold"
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout2">
 
         <TextView
-            android:id="@+id/productQuantity"
+            android:id="@+id/foodQuantityOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"

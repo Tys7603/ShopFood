@@ -8,7 +8,7 @@
     tools:context=".activity.main.OderActivity">
 
     <LinearLayout
-        android:id="@+id/btnBurger"
+        android:id="@+id/btnBackOrder"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="25dp"
@@ -46,33 +46,36 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="19dp"
         android:fontFamily="@font/red_hat_display_bold"
-        android:text="Order details"
+        android:text="Chi tiết đơn hàng"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBurger" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBackOrder" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/oderRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orderRCV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <androidx.cardview.widget.CardView
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp"
+        android:id="@+id/cardView2"
         android:layout_width="347dp"
-        android:layout_height="206dp"
+        android:layout_height="200dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="18dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -93,31 +96,107 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="40dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+
                     android:layout_weight="1"
-                    android:layout_marginStart="30dp"
                     android:fontFamily="@font/red_hat_display_bold"
-                    android:text="Total"
+                    android:text="Tổng : "
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/totalTextView"
+                    android:id="@+id/tvTotal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/red_hat_display_medium"
                     android:gravity="end"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:fontFamily="@font/red_hat_display_bold"
+                    android:text="Phí vận chuyển : "
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvDelivery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="25dp"
-                    android:text="$200"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/red_hat_display_medium"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/red_hat_display_bold"
+                    android:text="Tổng Phụ :"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvSubTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/red_hat_display_medium"
+                    android:gravity="end"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -126,14 +205,14 @@
                 android:id="@+id/btnPlaceOder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="9dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bgr_item_bottom_menu4"
-                android:text="Place My Order"
+                android:fontFamily="@font/red_hat_display_bold"
+                android:text="Đặt hàng ngay"
                 android:textColor="@color/primary"
                 android:textSize="14sp"
-                android:fontFamily="@font/red_hat_display_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

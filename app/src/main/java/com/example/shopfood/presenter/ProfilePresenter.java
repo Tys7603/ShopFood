@@ -72,6 +72,25 @@ public class ProfilePresenter {
         });
     }
 
+    public void updateAvatarUser(String email, String avatar, User user){
+        mProgressDialog = ProgressDialog.show(context, "","Updating ... ");
+        ApiService.API_SERVICE.updateAvatarUser(email, avatar).enqueue(new Callback<StatusUser>() {
+            @Override
+            public void onResponse(Call<StatusUser> call, Response<StatusUser> response) {
+                assert response.body() != null;
+                if (response.body().getStatus().equals(Constant.SUCCESS)){
+                    rememberUser(convertJson(user), context);
+                    mProgressDialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StatusUser> call, Throwable t) {
+                mProgressDialog.dismiss();
+            }
+        });
+    }
+
     public void rememberUser(String user, Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences("rememberUser", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

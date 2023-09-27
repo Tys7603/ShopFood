@@ -7,11 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.shopfood.activity.MealMenuActivity;
 import com.example.shopfood.adapter.MenuRCVAdapter;
 import com.example.shopfood.adapter.FoodRCVAdapter;
 import com.example.shopfood.adapter.MainVPAdapter;
@@ -20,7 +24,9 @@ import com.example.shopfood.interfacee.MainInterface;
 import com.example.shopfood.modal.Photo;
 import com.example.shopfood.modal.Food;
 import com.example.shopfood.R;
+import com.example.shopfood.modal.User;
 import com.example.shopfood.presenter.MainPresenter;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +44,10 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     MainVPAdapter mMainVPAdapter;
     CircleIndicator3 mIndicator3;
     LinearLayout btnActivityCart, btnActivityProfile, btnActivityChat, btnBurger, btnPizza, btnSandwich;
-    TextView tvBurger, tvPizza, tvSandwich;
+    TextView tvBurger, tvPizza, tvSandwich, tvMealMenu, tvDiaChi;
+    ImageView ivAnh;
     MainPresenter mMainPresenter;
+    Gson mGson;
     Handler handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -62,6 +70,18 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         setAdapterViewPager2Auto();
         // on click
          onClick();
+         //set value
+        setValue();
+    }
+
+    private void setValue() {
+        User user = convertObject();
+        if (!user.getAddress().isEmpty()){
+            tvDiaChi.setText(user.getAddress());
+        }
+        if (!user.getAvatar().isEmpty()){
+            Glide.with(this).load(user.getAvatar()).into(ivAnh);
+        }
     }
 
     public void init(){
@@ -79,10 +99,15 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         tvBurger = findViewById(R.id.tvBurger);
         tvPizza = findViewById(R.id.tvPizza);
         tvSandwich = findViewById(R.id.tvSandwich);
+        tvMealMenu = findViewById(R.id.tvMealMenu);
+        tvDiaChi = findViewById(R.id.tvDiachiMain);
+        ivAnh = findViewById(R.id.ivAnhMain);
+        mGson = new Gson();
     }
 
     public void onClick(){
         // chuyen man hinh
+        tvMealMenu.setOnClickListener(view ->startActivity(new Intent(MainActivity.this, MealMenuActivity.class)));
         btnActivityCart.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, OderActivity.class)));
         btnActivityProfile.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
         btnActivityChat.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
@@ -97,8 +122,8 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         // list img
         listPhoto = new ArrayList<>();
         listPhoto.add(new Photo(R.drawable.banner));
-        listPhoto.add(new Photo(R.drawable.banner));
-        listPhoto.add(new Photo(R.drawable.banner));
+        listPhoto.add(new Photo(R.drawable.img_3));
+        listPhoto.add(new Photo(R.drawable.img_4));
     }
     public void setAdapterViewPager2Auto(){
         mMainVPAdapter = new MainVPAdapter(listPhoto, getApplicationContext());
@@ -117,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
     public void setAdapterRCVProduct(List<Food> list){
         // rcv product
         layoutManager = new LinearLayoutManager(getApplicationContext());
-        FoodRCVAdapter = new FoodRCVAdapter(getApplicationContext(), list);
+        FoodRCVAdapter = new FoodRCVAdapter(this, list);
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         rcvProduct.setLayoutManager(layoutManager);
         rcvProduct.setAdapter(FoodRCVAdapter);
@@ -131,6 +156,13 @@ public class MainActivity extends AppCompatActivity implements MainInterface {
         rcvMenuProduct.setAdapter(menuRCVAdapter);
     }
 
+
+    private User convertObject() {
+        SharedPreferences sharedPreferences = getSharedPreferences("rememberUser", MODE_PRIVATE);
+        String strUser  = sharedPreferences.getString("user","");
+        User user = mGson.fromJson(strUser, User.class);
+        return user;
+    }
 
     @Override
     protected void onPause() {

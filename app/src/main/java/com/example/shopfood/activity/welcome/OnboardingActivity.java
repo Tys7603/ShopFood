@@ -43,11 +43,23 @@ public class OnboardingActivity extends AppCompatActivity {
 
     // xử lí sự kiển click
     public void onClick(){
-        btnSkip.setOnClickListener(view -> viewPager2.setCurrentItem(2));
+        btnSkip.setOnClickListener(view ->{
+            viewPager2.setCurrentItem(2);
+            viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+                // dc gọi khi trang mới dc gọi
+                @Override
+                public void onPageSelected(int position) {
+                    super.onPageSelected(position);
+                    if(position == 2 ){
+                        layout_Controls.setVisibility(View.GONE);
+                    }else {
+                        layout_Controls.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+         });
 
-        btnNext.setOnClickListener(view -> {
-            nextFragment();
-        });
+        btnNext.setOnClickListener(view -> nextFragment());
     }
     // chuyen man hinh gioi thieu
     public void nextFragment(){
